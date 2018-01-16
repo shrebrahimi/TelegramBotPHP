@@ -18,10 +18,11 @@ $user_id = $telegram->UserID(); // چت آیدی یکتای کاربر
 
 
  if ($text == '/start'){
-        echo "سلام شما در حال نوشتن پیام به ShR_EB هستید. می‌تونید نقد یا هر حرفی که تو دلتون هست رو بنویسید چون پیام شما به صورت ناشناس ارسال می‌شه.";
-    }
-    
-
+  
+    $sendMessage = new SendMessage();
+    $sendMessage->chat_id = id;
+    $sendMessage->text = 'Hello world!';
+}
 
 if(!is_null($text) && !is_null($chat_id)){
 $content = array('chat_id' => $chat_id, 'text' => $user_id);
