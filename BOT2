@@ -5,18 +5,6 @@ $token= "249879980:AAHNdWnXjdq6Fw17NF81xXTtjA3xs19Sc6w";
 $chat_id= $arrayMessage['message']['from']['id'];
 $command= $arrayMessage['message']['text'];
 
-
-$url= "https://api.telegram.org/bot".$token."/getupdates";
-$update= file_get_contents($url);
-$arrayUpdate= json_decode($update, true);
-foreach ($arrayUpdate['result'] as $key) {
-    echo "update_id: ".$key['update_id']."<br>";
-    echo "user name: ".$key['message']['from']['username']."<br>";
-    echo "first name: ".$key['message']['from']['first_name']."<br>";
-    echo "text: ".$key['message']['text']."<br>";
-    echo "<br><br><br><br>";
-}
-
 if($command == '/start'){
     $text= "سلام، به ربات ما خوش آمدید";
     $url= "https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chat_id."&text=".$text;
