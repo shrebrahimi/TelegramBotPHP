@@ -17,12 +17,11 @@ $user_id = $telegram->UserID(); // چت آیدی یکتای کاربر
 
 
 
- if ($text == '/start'){
-  
-    $sendMessage = new SendMessage();
-    $sendMessage->chat_id = id;
-    $sendMessage->text = 'Hello world!';
-}
+$bot->command('start', function ($message) use ($bot) {
+    $answer = 'سلام';
+    $bot->sendMessage($message->getChat()->getId(), $answer);
+});
+
 
 if(!is_null($text) && !is_null($chat_id)){
 $content = array('chat_id' => $chat_id, 'text' => $user_id);
