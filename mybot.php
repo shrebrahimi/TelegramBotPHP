@@ -13,7 +13,3 @@ $family = $telegram->LastName();
 $message_id = $telegram->MessageID(); // هر پیغام در تلگرام یک آیدی یکتا دارد
 $user_id = $telegram->UserID(); // چت آیدی یکتای کاربر
 
-if(!is_null($text) && !is_null($chat_id)){
-$content = array('chat_id' => $chat_id, 'text' => $user_id);
-$telegram->sendReplyMessage($content);
-}
