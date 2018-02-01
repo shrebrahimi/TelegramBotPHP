@@ -1,15 +1,7 @@
-include("Telegram.php");
-date_default_timezone_set("asia/tehran");
-// Set the bot TOKEN
-$bot_id = "511786967:AAFER0h8tLym9p-F2SsNc2-v2bt5kbWEt-E";
-// Instances the class
-$telegram = new Telegram($bot_id);
+$telegram = new Telegram('511786967:AAFER0h8tLym9p-F2SsNc2-v2bt5kbWEt-E');
 
 $result = $telegram->getData();
-$text = $telegram->Text(); // متنی که کاربر ارسال میکنه
-$username = $telegram->Username(); // نام کاربری کاربر
-$name = $telegram->FirstName();
-$family = $telegram->LastName();
-$message_id = $telegram->MessageID(); // هر پیغام در تلگرام یک آیدی یکتا دارد
-$user_id = $telegram->UserID(); // چت آیدی یکتای کاربر
-
+$text = $result['message'] ['text'];
+$chat_id = $result['message'] ['chat']['id'];
+$content = array('chat_id' => $chat_id, 'text' => 'Test');
+$telegram->sendMessage($content);
