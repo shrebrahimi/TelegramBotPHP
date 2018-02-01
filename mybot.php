@@ -22,11 +22,7 @@ $message_id                 = $telegram->MessageID();
 $user_id                    = $telegram->UserID();
 
 
-if(!is_null($text) && !is_null($chat_id)) {
-
 $content = array('chat_id' => $chat_id, 'text' => $user_id);
 $telegram->sendMessage($content);
 
-
-}
 
